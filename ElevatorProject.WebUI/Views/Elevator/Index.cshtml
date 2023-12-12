@@ -1,0 +1,65 @@
+﻿@model List<ResultElevatorDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+
+
+<a href="/Elevator/AddElevator" class="btn mb-1 btn-rounded btn-outline-info form-control"><b class="center">Yeni Asansör Ekle</b></a>
+<div class="table-responsive">
+    <table class="table table-striped table-bordered zero-configuration">
+        <thead>
+            <tr>
+                <th>İlçe</th>
+                <th>Bina Adı</th>
+                <th>Kat Adeti</th>
+                <th>Apartman Yöneticisi</th>
+                <th> Yönetici Telefon</th>
+                <th>Son Bakım Tarihi</th>
+                <th>Son Etiket Tarihi </th>
+                <th>Aksiyon</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Adress2</td>
+                    <td>@item.BuildingName</td>
+                    <td>@item.NumberOfFloor</td>
+                    <td>@item.BuildingManagerName</td>
+                    <td>@item.BuildingManagerPhone</td>
+                    <td>@item.LastMaintainceDate</td>
+                    <td>@item.LastRevisionDate</td>
+                    <td>
+                        <span>
+                            @*<a href="/Elevator/ElevatorDetail/@item.ElevatorID"  data-placement="top"  title="Detay" data-toggle="modal" data-target="@("#Modal1"+item.ElevatorID)"><i class="fa fa-bank color-muted m-r-5"></i> </a>
+        @await Html.PartialAsync("_ElevatorDetailPartial",item)*@
+                            @*<a href="/Elevator/ElevatorUpdate/@item.ElevatorID" data-toggle="tooltip" data-placement="top" title="Düzenle"><i class="btn btn-success"></i> </a>*@
+                            <a href="/Elevator/ElevatorUpdate/@item.ElevatorID" class="btn btn-outline-primary btn-sm">Düzenle</a>
+                            @*<a href="/Elevator/GetElevatorDelete/@item.ElevatorID" data-toggle="modal" data-target="@("#DeleteElevator-"+item.ElevatorID)" data-placement="top" title="Sil"><i class="fa fa-close color-danger"></i></a>*@
+                            <button type="button" size ="" class="btn btn-outline-success btn-sm"  data-toggle="modal" data-target="@("#DetailElevator-"+item.ElevatorID)" data-url="@Url.Action($"ElevatorDetail/{item.ElevatorID}")">Detaylar</button>
+                            @await Html.PartialAsync("_ElevatorDetailPartial", item)
+                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="@("#DeleteElevator-"+item.ElevatorID)" data-url="@Url.Action($"GetElevatorDelete/{item.ElevatorID}")">Sil</button>
+                            @await Html.PartialAsync("_ElevatorDeletePartial", item)
+                        </span>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+        @*<tfoot>
+                <tr>
+                    <th>İlçe</th>
+                    <th>Bina Adı</th>
+                    <th>Kat Adeti</th>
+                    <th>Apartman Yöneticisi</th>
+                    <th>Son Bakım Tarihi</th>
+                    <th>Son Etiket Tarihi </th>
+                </tr>
+            </tfoot>*@
+    </table>
+</div>
+

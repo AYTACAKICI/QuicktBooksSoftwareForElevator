@@ -1,0 +1,63 @@
+﻿@model List<ResultOfferDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+    int count = 0;
+}
+
+
+<div class="table-responsive">
+    <table class="table table-striped table-bordered zero-configuration">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Talep Servis</th>
+                <th>Bina Adı</th>
+                <th>Kat Adeti</th>
+                <th>Apartman Yöneticisi</th>
+                <th>Telefon Numarası</th>
+                <th>Email</th>
+                <th> Asansör Tipi</th>
+                <th>Kapı Tipi</th>
+                <th>Açıklama/Özel Talep</th>
+                <th>Aksiyon</th>
+                <th>Talep Tarihi </th>
+                <th>Yanıt Tarihi </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                count++;
+                <tr>
+                    <td>@count</td>                   
+                    <td>@item.ElectronicSystemType</td>                   
+                    <td>@item.BuildingName</td>
+                    <td>@item.NumberOfFloor</td>
+                    <td>@item.ContactName</td>
+                    <td>@item.PhoneNumber</td>
+                    <td>@item.Mail</td>
+                    <td>@item.ElevatorType</td>
+                    <td>@item.DoorType</td>
+                    <td>
+                        <button type="button" size="" class="btn btn-outline-success btn-sm" data-toggle="modal" data-target="@("#DetailOffer-"+item.OfferID)" data-url="@Url.Action($"OfferDetail/{item.OfferID}")">Özel Talep/Açıklama</button>
+                        @await Html.PartialAsync("_OfferDescriptionPartial", item)
+                    </td>
+                    <td>@item.Status</td>
+                    <td>@item.DateOfRequestForProposal</td>
+                    <td>@item.DateOfSubmitionOfOffer</td>
+                    <td>
+                        <span>
+                            <a href="/AdminOffer/OfferUpdate/@item.OfferID" class="btn btn-outline-primary btn-sm">Düzenle</a>
+                            <button type="button" class="btn btn-outline-danger btn-sm" data-toggle="modal" data-target="@("#DeleteOffer-"+item.OfferID)" data-url="@Url.Action($"GetOfferDelete/{item.OfferID}")">Sil</button>
+                            @await Html.PartialAsync("_OfferDeletePartial", item)
+                        </span>
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+       
+    </table>
+</div>
+

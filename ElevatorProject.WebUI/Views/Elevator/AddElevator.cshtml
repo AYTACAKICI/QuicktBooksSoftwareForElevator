@@ -1,0 +1,77 @@
+﻿@model CreateElevatorDto
+@{
+    ViewData["Title"] = "AddElevator";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+
+
+<form method="post">
+    <label>Bina Adı</label>
+    <input type="text" asp-for="BuildingName" class="form-control" />
+    <span asp-validation-for="BuildingName" class="text-danger"></span>
+    <br />
+    <label>Asansör Etiket No</label>
+    <input type="text" asp-for="ElevatorRegistirationNumber" class="form-control" />
+    <span asp-validation-for="ElevatorRegistirationNumber" class="text-danger"></span>
+    <br />
+    <label>Asansör Tipi</label>
+    <input type="text" asp-for="ElevatorType" class="form-control" />
+    <span asp-validation-for="ElevatorType" class="text-danger"></span>
+    <br />
+    <label>Kat Sayısı</label>
+    <input type="text" asp-for="NumberOfFloor" class="form-control" />
+    <span asp-validation-for="NumberOfFloor" class="text-danger"></span>
+    <br />
+    <label>Pano Modeli</label>
+    <input type="text" asp-for="ElectronicSystemType" class="form-control" />
+    <span asp-validation-for="ElectronicSystemType" class="text-danger"></span>
+    <br />
+    <label>Kapı Tipi</label>
+    <input type="text" asp-for="DoorType" class="form-control" />
+    <span asp-validation-for="DoorType" class="text-danger"></span>
+    <br />
+    <label>Asansör Motor Tipi</label>
+    <input type="text" asp-for="EngineType" class="form-control" />
+    <span asp-validation-for="EngineType" class="text-danger"></span>
+    <br />
+    <label> Asansör'ün Üreticisi'</label>
+    <input type="text" asp-for="Manufacturer" class="form-control" />
+    <span asp-validation-for="Manufacturer" class="text-danger"></span>
+    <br />
+    <label>Üretim Yılı</label>
+    <input type="text" asp-for="ManufacturedYear" class="form-control" />
+    <span asp-validation-for="ManufacturedYear" class="text-danger"></span>
+    <br />
+    <label> Asansör Açıklaması</label>
+    <input type="text" asp-for="Descriptions" class="form-control" />
+    <span asp-validation-for="Descriptions" class="text-danger"></span>
+    <br />
+    <label>Adres</label>
+    <input type="text" asp-for="Adress1" class="form-control" />
+    <span asp-validation-for="Adress1" class="text-danger"></span>
+    <br />
+    <label>İlçe</label>
+    <input type="text" asp-for="Adress2" class="form-control" />
+    <span asp-validation-for="Adress2" class="text-danger"></span>
+    <br />
+    <label>Şehir</label>
+    <input type="text" asp-for="Adress3" class="form-control" />
+    <span asp-validation-for="Adress3" class="text-danger"></span>
+    <br />
+    <h1>Apartman Yöneticisi</h1>
+    <label>İsim Soyisim</label>
+    <input type="text" asp-for="Name" class="form-control" />
+    <span asp-validation-for="Name" class="text-danger"></span>
+    <br />
+    <label>Telefon Numarası</label>
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    <br />
+    <label>Mail</label>
+    <input type="text" asp-for="Mail" class="form-control" />
+    <span asp-validation-for="Mail" class="text-danger"></span>
+    <br />
+
+    <button class="btn btn-primary "> Asansörü Ekle </button>
+</form>

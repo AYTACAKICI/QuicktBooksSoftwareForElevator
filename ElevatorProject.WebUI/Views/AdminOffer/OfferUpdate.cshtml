@@ -1,0 +1,74 @@
+﻿@model UpdateOfferDto
+
+@{
+    ViewData["Title"] = "OfferUpdate";
+    Layout = "~/Views/AdminLayout/_AdminLayout.cshtml";
+}
+
+<form method="post">
+    <input type="hidden" asp-for="OfferID" />
+    <label>Servis Tipi giriniz</label>
+    <div class="form-floating">
+        @Html.DropDownListFor(x => x.ElectronicSystemType, (List<SelectListItem>)ViewBag.v, new { @class = "form-control" })
+    </div>
+    <br />
+    <label>Asansör Tipi</label>
+    <select class="form-select form-control" id="select1" asp-for="ElevatorType">
+        <option value="Bina Servis Asansörü">Bina Servis Asansörü</option>
+        <option value="Bina Yük Asansörü">Bina Yük Asansörü</option>
+        <option value="Engelli Asansörü">Engelli Asansörü</option>
+        <option value="Hidrolik Servis Asansörü">Hidrolik Servis Asansörü</option>
+    </select>
+    <br />
+    <label>Bina Adı</label>
+    <input type="text" asp-for="BuildingName" class="form-control" />
+    <span asp-validation-for="BuildingName" class="text-danger"></span>
+    <br />
+    <label>Yönetici İsim</label>
+    <input type="text" asp-for="ContactName" class="form-control" />
+    <span asp-validation-for="ContactName" class="text-danger"></span>
+    <br />
+    <label>Yönetici Telefon Numarası</label>
+    <input type="text" asp-for="PhoneNumber" class="form-control" />
+    <span asp-validation-for="PhoneNumber" class="text-danger"></span>
+    <br />
+    <label>Yönetici EMail</label>
+    <input type="email" asp-for="Mail" class="form-control" />
+    <span asp-validation-for="Mail" class="text-danger"></span>
+    <br />
+
+    <label>Teklif Durumu</label>
+    <select class="form-select form-control" id="select1" asp-for="Status">
+        <option value="Teklif Gönderildi">Teklif Gönderildi</option>
+        <option value="Cevap Bekleniyor">Cevap Bekleniyor</option>
+        <option value="Teklif Onaylandı">Teklif Onaylandı</option>
+    </select>
+    <br />
+    <label>Kapı Tipi</label>
+    <select class="form-select form-control" id="select3" asp-for="DoorType">
+        <option value="Otomatik">Otomatik</option>
+        <option value="Çarpma Kapı">Çarpma Kapı</option>
+    </select>
+    <br />
+    <label>Asansör Motor Tipi</label>
+    <input type="text" asp-for="NumberOfFloor" class="form-control" />
+    <span asp-validation-for="NumberOfFloor" class="text-danger"></span>
+    <br />
+    <label>Açıklaması</label>
+    <input type="text" asp-for="Descriptions" class="form-control" />
+    <span asp-validation-for="Descriptions" class="text-danger"></span>
+    <br />
+    <label>Adres</label>
+    <input type="text" asp-for="Adress1" class="form-control" />
+    <span asp-validation-for="Adress1" class="text-danger"></span>
+    <br />
+    <label>İlçe</label>
+    <input type="text" asp-for="Adress2" class="form-control" />
+    <span asp-validation-for="Adress2" class="text-danger"></span>
+    <br />
+
+
+    <button class="btn btn-primary "> Asansörü Güncelle </button>
+</form>
+
+

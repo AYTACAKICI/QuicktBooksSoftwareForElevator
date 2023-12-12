@@ -1,0 +1,116 @@
+﻿@model ResultElevatorDto
+
+<div class="modal fade" id="DetailElevator-@Model.ElevatorID" aria-labelledby="DetailElevatorLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="DetailElevatorLabel">Asansör Detayları</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <dl class="row">
+                    <dt class="col-sm-3">
+                        <label> Bina Adı</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.BuildingName)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Asansör Etiket Numarası</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.ElevatorRegistirationNumber)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Asansör Tipi</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.ElevatorType)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Elektronik Tip</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.ElectronicSystemType)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Kapı Tipi</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.DoorType)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Motor Tipi</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.EngineType)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Üretim Yılı</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.ManufacturedYear)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Üretici Firma</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Manufacturer)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Kat Sayısı</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.NumberOfFloor)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Adres</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Adress1)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> İlçe</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Adress2)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> İl</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.Adress3)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Son Bakım Tarihi</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.LastMaintainceDate)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Son Mühedis Etiket Kontrol Tarihi</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.LastRevisionDate)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Bina Yönetici Adı</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.BuildingManagerName)
+                    </dd>
+                    <dt class="col-sm-3">
+                        <label> Bina Yönetici Telefon Numarası</label>
+                    </dt>
+                    <dd class="col-sm-9">
+                        @Html.DisplayFor(model => model.BuildingManagerPhone)
+                    </dd>
+                </dl>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Çıkış</button>
+            </div>
+
+        </div>
+    </div>
+</div>
